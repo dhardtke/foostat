@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<title>foostat Visualization</title>
+
+<!--
+	uses https://github.com/kripken/sql.js for accessing the SQLite DB
+	and https://github.com/nnnick/Chart.js for the chart visualization
+-->
+
+<style>
+	body {
+		font-family: Calibri;
+	}
+	
+	#upload {
+		border: 2px dashed #bbb;
+		border-radius: 5px;
+		color: #bbb;
+		padding: 25px;
+		text-align: center;
+	}
+	
+	ul li {
+		display: inline;
+		margin-right: 5px;
+	}
+	
+	.chart {
+		float: left;
+	}
+</style>
+
+<form id="upload">
+	<input type="file" id="file" />
+</form>
+
+<div style="clear: both;">
+	<div class="chart">
+		<canvas id="chart-passed" width="600" height="400"></canvas>
+	</div>
+	
+	<div class="chart">
+		<canvas id="chart-failed" width="600" height="400"></canvas>
+	</div>
+	
+	<div class="chart">
+		<canvas id="chart-pending" width="600" height="400"></canvas>
+	</div>
+</div>
+
+<script src="js/vendor/sql.js"></script>
+<script src="js/vendor/chart.min.js"></script>
+<script src="js/upload.js"></script>
+<script src="js/visualize.js"></script>

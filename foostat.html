@@ -7,44 +7,70 @@
 -->
 
 <style>
-	body {
-		font-family: Calibri;
-	}
-	
-	#upload {
-		border: 2px dashed #bbb;
-		border-radius: 5px;
-		color: #bbb;
-		padding: 25px;
-		text-align: center;
-	}
-	
-	ul li {
-		display: inline;
-		margin-right: 5px;
-	}
-	
-	.chart {
-		float: left;
-	}
+    body {
+        font-family: Calibri;
+    }
+
+    #config {
+        border: 2px dashed #bbb;
+        border-radius: 5px;
+        color: #bbb;
+        padding: 5px;
+        text-align: center;
+    }
+
+    ul li {
+        display: inline;
+        margin-right: 5px;
+    }
+
+    .chart {
+        float: left;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    .tab {
+        color: #000;
+        font-size: 20px;
+    }
+    
+    .tab:not(:last-child) {
+        border-right: 1px solid #ccc;
+        padding-right: 5px;;
+    }
+
+    .tab.active {
+        font-weight: bold;;
+    }
 </style>
 
-<form id="upload">
-	<input type="file" id="file" />
+<form id="config">
+    <input type="file" id="file"/>
+
+    <a href="#total" class="tab active" data-what="total">Total</a>
+    <a href="#last24" class="tab" data-what="last24">Last 24 Hours</a>
+    <a href="#lastweek" class="tab" data-what="lastweek">Last Week</a>
 </form>
 
 <div style="clear: both;">
-	<div class="chart">
-		<canvas id="chart-passed" width="600" height="400"></canvas>
-	</div>
-	
-	<div class="chart">
-		<canvas id="chart-failed" width="600" height="400"></canvas>
-	</div>
-	
-	<div class="chart">
-		<canvas id="chart-pending" width="600" height="400"></canvas>
-	</div>
+    <div class="chart">
+        <canvas id="chart-passed" width="600" height="400"></canvas>
+    </div>
+
+    <div class="chart">
+        <canvas id="chart-failed" width="600" height="400"></canvas>
+    </div>
+
+    <div class="chart">
+        <canvas id="chart-pending" width="600" height="400"></canvas>
+    </div>
 </div>
 
 <script src="js/vendor/sql.js"></script>
